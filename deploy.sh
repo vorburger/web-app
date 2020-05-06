@@ -3,6 +3,7 @@ set -euo pipefail
 
 npm install @angular/cli
 
-./node_modules/.bin/ng build -prod
+# TODO --prod, once https://github.com/openMF/web-app/issues/739 is clarified
+./node_modules/.bin/ng build
 
 firebase deploy --only hosting:openmf-web-app
