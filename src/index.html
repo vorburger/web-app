@@ -46,6 +46,25 @@
     </div>
   </mifosx-web-app>
 
+  <script src="/__/firebase/7.14.2/firebase-app.js"></script>
+  <script src="/__/firebase/7.14.2/firebase-analytics.js"></script>
+  <script src="/__/firebase/7.14.2/firebase-performance.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script>
+    try {
+        let app = firebase.app();
+        let features = ['analytics', 'performance', 'auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+        console.info(`Firebase SDK loaded with features: ${features.join(', ')}.`);
+
+        firebase.analytics();
+        firebase.analytics().logEvent('index.html Firebase SDK loaded');
+
+        var perf = firebase.performance();
+    } catch (e) {
+       console.error(e);
+    }
+  </script>
+
   <!-- ParticlesJS -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </body>
